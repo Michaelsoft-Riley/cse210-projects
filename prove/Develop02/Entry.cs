@@ -14,32 +14,62 @@ public class Entry()
     }
 
 
-    public void AssignAll()
+    public void AssignNewAll()
     {
-        AssignDate();
-        AssignPrompt();
-        AssignEntryText();
+        NewDate();
+        NewPrompt();
+        NewText();
     }
 
 
-    private void AssignDate()
+    private void NewDate()
     {
         //TODO: Format datetime output to match the example video
-        _date = DateTime.Now.ToString();
+        _date = DateTime.Now.ToString("MM/dd/yyyy");
     }
 
-
-    private void AssignPrompt()
+    private void NewPrompt()
     {
         Prompt prompt= new Prompt();
         _prompt = prompt.RandPrompt();
     }
 
-
-    private void AssignEntryText()
+    private void NewText()
     {
-        AssignPrompt();
+        NewPrompt();
         Console.WriteLine($"{_prompt}");
         _entryText = Console.ReadLine();
+    }
+
+
+    public void LoadExistingDate(string date)
+    {
+        _date = date;
+    }
+
+    public void LoadExistingPrompt(string prompt)
+    {
+        _prompt = prompt;
+    }
+
+    public void LoadExistingText(string text)
+    {
+        _entryText = text;
+    }
+
+
+    public string GetDate()
+    {
+        return _date;
+    }
+
+    public string GetPrompt()
+    {
+        return _prompt;
+    }
+
+    public string GetEntryText()
+    {
+        return _entryText;
     }
 }
