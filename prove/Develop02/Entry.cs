@@ -24,7 +24,6 @@ public class Entry()
 
     private void NewDate()
     {
-        //TODO: Format datetime output to match the example video
         _date = DateTime.Now.ToString("MM/dd/yyyy");
     }
 
