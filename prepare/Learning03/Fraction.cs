@@ -35,26 +35,4 @@ public class Fraction
         _top = top;
         _bottom = bottom;
     }
-
-
-    public int GetTop()
-    {
-        return _top;
-    }
-
-    public int GetBottom()
-    {
-        return _bottom;
-    }
-
-
-    public void SetTop(int top)
-    {
-        _top = top;
-    }
-
-    public void SetBottom(int bottom)
-    {
-        _bottom = bottom;
-    }
 }
