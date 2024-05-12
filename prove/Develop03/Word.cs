@@ -20,4 +20,9 @@ public class Word
     {
         return _hidden;
     }
+
+    public string GetText()
+    {
+        return _text;
+    }
 }
