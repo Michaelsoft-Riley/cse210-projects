@@ -13,24 +13,23 @@ public class Reference
         ProcessReference(reference);
     }
 
-    public string GetBook()
+    public List<string> GetVersesList()
+    // returns a list of verses from _verse to _endVerse
     {
-        return _book;
-    }
-
-    public int GetChapter()
-    {
-        return _chapter;
-    }
-
-    public int GetVerse()
-    {
-        return _verse;
-    }
-
-    public int GetEndVerse()
-    {
-        return _endVerse;
+        List<string> verses = new();
+        
+        if (_endVerse != 0)
+        {
+            for (int i = _verse; i < _endVerse; i++)
+            {
+                verses.Add($"{_book} {_chapter}:{i}");
+            }
+        }
+        else
+        {
+            verses.Add($"{_book} {_chapter}:{_verse}");
+        }
+        return verses;
     }
 
     public string GetDisplayText()
@@ -48,7 +47,7 @@ public class Reference
     public void ProcessReference(string reference)
     // Accepts a string in "book chapter:verse-endVerse" format. (Ex: 1Nephi 1:1-2) or (Ex: 1Nephi 1:1)
     // Splits the string into corresponding variables and saves their values as class attributes.
-    // The verse portion of the string can be one or two numbers, as long as they are separated by a "-".
+    // The verse portion of the string can contain two verses, as long as they are separated by a "-".
     {
         reference = reference.Trim();
         string[] parts = reference.Split(" ");
@@ -64,6 +63,9 @@ public class Reference
             _verse = int.Parse(verses[0]);
             _endVerse = int.Parse(verses[1]);
         }
-        _verse = int.Parse(parts[1]);
+        else
+        {
+        _verse = int.Parse(parts[0]);
+        }
     }
 }
