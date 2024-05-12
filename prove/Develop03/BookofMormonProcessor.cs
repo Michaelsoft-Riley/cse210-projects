@@ -5,6 +5,11 @@ public class BookofMormonProcessor
 {
     private Dictionary<string, string> _processedBook = new();
 
+    public BookofMormonProcessor()
+    {
+        LoadVersesFromFile();
+    }
+
     public void LoadVersesFromFile()
     {
         string[] books = {
@@ -22,7 +27,7 @@ public class BookofMormonProcessor
 
             // Check if the line is a reference preceeding a verse
             // This has the added effect of filtering out non-verse text blocks
-            if (_books.Any(lines[0].Contains) && (lines[0].Contains(":")))
+            if (books.Any(lines[0].Contains) && (lines[0].Contains(":")))
             {
                 // The first line is the reference. Store it, clean it, and remove it from the list of lines.
                 string referenceText = lines[0];
