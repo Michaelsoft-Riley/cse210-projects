@@ -5,14 +5,13 @@ public class BookofMormonProcessor
 {
     private Dictionary<string, string> _processedBook = new();
 
-    private string[] _books = {
-    "1Nephi", "2Nephi", "Jacob", "Enos", "Jarom", "Omni",
-    "WordsofMormon", "Mosiah", "Alma", "Helaman", "3Nephi",
-    "4Nephi", "Mormon", "Ether", "Moroni"
-    };
-
     public void LoadVersesFromFile()
     {
+        string[] books = {
+        "1Nephi", "2Nephi", "Jacob", "Enos", "Jarom", "Omni",
+        "WordsofMormon", "Mosiah", "Alma", "Helaman", "3Nephi",
+        "4Nephi", "Mormon", "Ether", "Moroni"};
+
         string sourceText = File.ReadAllText("mormon13.txt");
         // Verses in mormon13.txt are separated by empty lines.
         string[] textBlocks = sourceText.Split("\r\n\r\n", StringSplitOptions.RemoveEmptyEntries);
