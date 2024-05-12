@@ -2,10 +2,10 @@ using System;
 
 public class Reference
 {
-    string _book;
-    int _chapter;
-    int _verse;
-    int _endVerse = 0;
+    private string _book;
+    private int _chapter;
+    private int _verse;
+    private int _endVerse = 0;
 
     public Reference(string reference)
     // Accepts a string in "book chapter:verse-endVerse" format. (Ex: 1Nephi 1:1) or (Ex: 1Nephi 1:1-2)
