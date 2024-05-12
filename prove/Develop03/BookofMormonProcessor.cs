@@ -34,6 +34,11 @@ public class BookofMormonProcessor
                 referenceText = referenceText.Trim();
                 lines.RemoveAt(0);
 
+                // Remove the additional verse number at the start of the verse
+                List<string> line0 = new List<string>(lines[0].Split());
+                line0.RemoveAt(0);
+                lines[0] = String.Join(" ", line0);
+
                 // The remaining lines are parts of the verse.
                 String verseText = String.Join("\r\n", lines);
                 
