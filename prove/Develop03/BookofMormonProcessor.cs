@@ -18,6 +18,7 @@ public class BookofMormonProcessor
         "4Nephi", "Mormon", "Ether", "Moroni"};
 
         string sourceText = File.ReadAllText("mormon13.txt");
+        
         // Verses in mormon13.txt are separated by empty lines.
         string[] textBlocks = sourceText.Split("\r\n\r\n", StringSplitOptions.RemoveEmptyEntries);
 
@@ -27,7 +28,7 @@ public class BookofMormonProcessor
 
             // Check if the line is a reference preceeding a verse
             // This has the added effect of filtering out non-verse text blocks
-            if (books.Any(lines[0].Contains) && (lines[0].Contains(":")))
+            if (books.Any(lines[0].Contains) && lines[0].Contains(":"))
             {
                 // The first line is the reference. Store it, clean it, and remove it from the list of lines.
                 string referenceText = lines[0];
@@ -35,9 +36,7 @@ public class BookofMormonProcessor
                 lines.RemoveAt(0);
 
                 // Remove the additional verse number at the start of the verse
-                List<string> line0 = new List<string>(lines[0].Split());
-                line0.RemoveAt(0);
-                lines[0] = String.Join(" ", line0);
+                lines[0] = lines[0].Remove(0,3);
 
                 // The remaining lines are parts of the verse.
                 String verseText = String.Join("\r\n", lines);
