@@ -49,7 +49,7 @@ public class Activity
             {
             Console.Write("\b \b");
             Console.Write(c);
-            Thread.Sleep(300);
+            Thread.Sleep(250);
             }
     }
 }
