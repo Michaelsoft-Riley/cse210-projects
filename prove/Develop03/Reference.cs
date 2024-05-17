@@ -20,7 +20,7 @@ public class Reference
         
         if (_endVerse != 0)
         {
-            for (int i = _verse; i < _endVerse; i++)
+            for (int i = _verse; i <= _endVerse; i++)
             {
                 verses.Add($"{_book} {_chapter}:{i}");
             }
@@ -65,7 +65,7 @@ public class Reference
         }
         else
         {
-        _verse = int.Parse(parts[0]);
+        _verse = int.Parse(parts[1]);
         }
     }
 }
