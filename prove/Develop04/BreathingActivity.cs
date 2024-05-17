@@ -11,6 +11,24 @@ public class BreathingActivity : Activity
 
     public void Run()
     {
+        // sets the end time
+        int duration = GetDuration();
+        DateTime currentTime = DateTime.Now;
+        DateTime endTime = currentTime.AddSeconds(duration);
 
+
+        while (currentTime < endTime)
+        {
+            CountdownAnimation("Breathe in...", 4);
+            CountdownAnimation("Breathe out...", 6);
+            
+            currentTime = DateTime.Now;
+            if (currentTime >= endTime)
+            {
+                break;
+            }
+
+            Console.WriteLine("\n");
+        }
     }
 }
