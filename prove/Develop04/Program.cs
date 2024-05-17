@@ -8,6 +8,8 @@ class Program
         string choice = "";
         while (choice != "4")
         {
+            Console.Clear();
+
             Console.WriteLine("Menu Options:");
             Console.WriteLine("   1. Start breathing activity");
             Console.WriteLine("   2. Start reflecting activity");
@@ -30,7 +32,7 @@ class Program
             }
             else if (choice == "4")
             {
-                
+
             }
         }
     }
