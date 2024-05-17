@@ -28,35 +28,69 @@ public class ReflectionActivity : Activity
         " when you have shown strength and resilience. This will help you recognize the power" +
         " you have and how you can use it in other aspects of your life.")
     {
-
+        StartMessage();
+        Run();
+        EndMessage();
     }
 
     public void Run()
     {
+        DisplayPrompt();
 
+        Console.WriteLine("Now ponder on each of the following questions as they are related to this experience.");
+        CountdownAnimation("You may begin in: ", 5);
+        Console.Clear();
+
+        int duration = GetDuration();
+        DateTime currentTime = DateTime.Now;
+        DateTime endTime = currentTime.AddSeconds(duration);
+
+        while (currentTime < endTime)
+        {
+            DisplayQuestion();
+            
+            currentTime = DateTime.Now;
+            if (currentTime >= endTime)
+            {
+                break;
+            }
+
+            Console.WriteLine("");
+        }
     }
 
     public string GetRandomPrompt()
     {
-        // TODO: Implement randomization
-        string randomPrompt = "";
+        Random random= new();
+        int randomNum = random.Next(0, _prompts.Count());
+
+        string randomPrompt = _prompts[randomNum];
         return randomPrompt;
     }
 
     public string GetRandomQuestion()
     {
-        // TODO: Implement randomization
-        string randomQuestion = "";
+        Random random= new();
+        int randomNum = random.Next(0, _questions.Count());
+
+        string randomQuestion = _questions[randomNum];
         return randomQuestion;
     }
 
     public void DisplayPrompt()
     {
+        string randomPrompt = GetRandomPrompt();
 
+        Console.WriteLine("Consider the following prompt:");
+        Console.WriteLine($"\n --- {randomPrompt} --- ");
+        Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
+        Console.ReadLine();
     }
 
     public void DisplayQuestion()
     {
-
+        string randomQuestion = GetRandomQuestion();
+        Console.Write($"> {randomQuestion} ");
+        SpinningAnimation();
     }
 }
