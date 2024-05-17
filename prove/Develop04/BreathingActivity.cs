@@ -6,7 +6,9 @@ public class BreathingActivity : Activity
         "This activity will help you relax by walking your through breathing in and out slowly. " +
         "Clear your mind and focus on your breathing.")
     {
+        StartMessage();
         Run();
+        EndMessage();
     }
 
     public void Run()
@@ -28,7 +30,7 @@ public class BreathingActivity : Activity
                 break;
             }
 
-            Console.WriteLine("\n");
+            Console.WriteLine("");
         }
     }
 }
