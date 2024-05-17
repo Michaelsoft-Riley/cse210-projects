@@ -25,6 +25,8 @@ public class Activity
         Console.Clear();
         Console.WriteLine("Get ready...");
         SpinningAnimation();
+
+        Console.WriteLine("\n\n");
     }
 
     public void EndMessage()
@@ -32,9 +34,20 @@ public class Activity
 
     }
 
-    public void CountdownAnimation()
+    public void CountdownAnimation(string message, int startNum)
+    // accepts a message string and an starting number. Displays an animation counting down to 0.
     {
+        Console.Write($"{message}...");
 
+        for (int currentNum = startNum; currentNum > 0; currentNum--)
+        {
+            Console.Write(currentNum);
+            Thread.Sleep(1000);
+            Console.Write("\b \b");
+        }
+
+        // this makes sure that the animation moves the cursor to a new line when it finishes.
+        Console.WriteLine("");
     }
 
     public void SpinningAnimation()
@@ -44,6 +57,7 @@ public class Activity
             '/', '-', '\\', '|'
         };
 
+        // loop animation 5 times
         for (int i = 0; i < 6; i++)
             foreach (char c in chars)
             {
@@ -51,5 +65,10 @@ public class Activity
             Console.Write(c);
             Thread.Sleep(250);
             }
+    }
+
+    public int GetDuration()
+    {
+        return _duration;
     }
 }
