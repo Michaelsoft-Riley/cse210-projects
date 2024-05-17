@@ -54,11 +54,4 @@ public class ListingActivity : Activity
         string randomPrompt = _prompts[randomNum];
         return randomPrompt;
     }
-
-    public List<string> GetListFromUser()
-    {
-        // TODO: This is unused
-        List<string> gratitudeList = new List<string>();
-        return gratitudeList;
-    }
 }
