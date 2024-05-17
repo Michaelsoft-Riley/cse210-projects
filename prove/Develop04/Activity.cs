@@ -10,8 +10,6 @@ public class Activity
     {
         _name = name;
         _description = description;
-
-        StartMessage();
     }
 
     public void StartMessage()
@@ -26,12 +24,14 @@ public class Activity
         Console.WriteLine("Get ready...");
         SpinningAnimation();
 
-        Console.WriteLine("\n\n");
+        Console.WriteLine("");
     }
 
     public void EndMessage()
     {
-
+        Console.WriteLine("\nWell done!");
+        Console.WriteLine($"\nYou've completed another {_duration} seconds of the breathing activity.");
+        SpinningAnimation();
     }
 
     public void CountdownAnimation(string message, int startNum)
@@ -45,8 +45,6 @@ public class Activity
             Thread.Sleep(1000);
             Console.Write("\b \b");
         }
-
-        // this makes sure that the animation moves the cursor to a new line when it finishes.
         Console.WriteLine("");
     }
 
@@ -65,6 +63,7 @@ public class Activity
             Console.Write(c);
             Thread.Sleep(250);
             }
+        Console.WriteLine("");
     }
 
     public int GetDuration()
