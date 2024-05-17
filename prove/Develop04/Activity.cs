@@ -37,7 +37,7 @@ public class Activity
     public void CountdownAnimation(string message, int startNum)
     // accepts a message string and an starting number. Displays an animation counting down to 0.
     {
-        Console.Write($"{message}...");
+        Console.Write($"{message}");
 
         for (int currentNum = startNum; currentNum > 0; currentNum--)
         {
