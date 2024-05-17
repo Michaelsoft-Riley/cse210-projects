@@ -54,8 +54,6 @@ public class ReflectionActivity : Activity
             {
                 break;
             }
-
-            Console.WriteLine("");
         }
     }
 
