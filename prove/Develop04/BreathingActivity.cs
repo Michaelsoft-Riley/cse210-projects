@@ -18,7 +18,6 @@ public class BreathingActivity : Activity
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
 
-
         while (currentTime < endTime)
         {
             CountdownAnimation("Breathe in...", 4);
