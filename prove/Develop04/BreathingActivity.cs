@@ -6,14 +6,14 @@ public class BreathingActivity : Activity
         "This activity will help you relax by walking your through breathing in and out slowly. " +
         "Clear your mind and focus on your breathing.")
     {
-        StartMessage();
-        Run();
-        EndMessage();
+        
     }
 
     public override void Run()
     {
-        // sets the end time
+        StartMessage();
+
+        // sets the current and end times
         int duration = GetDuration();
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
@@ -22,14 +22,13 @@ public class BreathingActivity : Activity
         {
             CountdownAnimation("Breathe in...", 4);
             CountdownAnimation("Breathe out...", 6);
-            
             currentTime = DateTime.Now;
             if (currentTime >= endTime)
             {
                 break;
             }
-
             Console.WriteLine("");
         }
+        EndMessage();
     }
 }

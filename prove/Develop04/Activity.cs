@@ -6,6 +6,9 @@ public abstract class Activity
     private string _description;
     private int _duration;
 
+    // number of times that the activity is completed
+    private int _count;
+
     public Activity(string name, string description)
     {
         _name = name;
@@ -69,6 +72,11 @@ public abstract class Activity
     public int GetDuration()
     {
         return _duration;
+    }
+
+    public int GetCount()
+    {
+        return _count;
     }
 
     public abstract void Run();

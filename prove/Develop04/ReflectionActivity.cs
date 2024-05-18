@@ -28,14 +28,13 @@ public class ReflectionActivity : Activity
         " when you have shown strength and resilience. This will help you recognize the power" +
         " you have and how you can use it in other aspects of your life.")
     {
-        StartMessage();
-        Run();
-        EndMessage();
+        
     }
 
     public override void Run()
     {
-        DisplayPrompt();
+        StartMessage();
+        DisplayRandomPrompt();
 
         Console.WriteLine("Now ponder on each of the following questions as they are related to this experience.");
         CountdownAnimation("You may begin in: ", 5);
@@ -48,20 +47,19 @@ public class ReflectionActivity : Activity
         while (currentTime < endTime)
         {
             DisplayQuestion();
-            
             currentTime = DateTime.Now;
             if (currentTime >= endTime)
             {
                 break;
             }
         }
+        EndMessage();
     }
 
     public string GetRandomPrompt()
     {
         Random random= new();
         int randomNum = random.Next(0, _prompts.Count());
-
         string randomPrompt = _prompts[randomNum];
         return randomPrompt;
     }
@@ -70,12 +68,11 @@ public class ReflectionActivity : Activity
     {
         Random random= new();
         int randomNum = random.Next(0, _questions.Count());
-
         string randomQuestion = _questions[randomNum];
         return randomQuestion;
     }
 
-    public void DisplayPrompt()
+    public void DisplayRandomPrompt()
     {
         string randomPrompt = GetRandomPrompt();
 

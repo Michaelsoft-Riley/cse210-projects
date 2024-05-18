@@ -21,14 +21,17 @@ class Program
             if (choice == "1")
             {
                 BreathingActivity breathingActivity = new BreathingActivity();
+                breathingActivity.Run();
             }
             else if (choice == "2")
             {
                 ReflectionActivity reflectionActivity = new ReflectionActivity();
+                reflectionActivity.Run();
             }
             else if (choice == "3")
             {
                 ListingActivity listingActivity = new ListingActivity();
+                listingActivity.Run();
             }
             else if (choice == "4")
             {
