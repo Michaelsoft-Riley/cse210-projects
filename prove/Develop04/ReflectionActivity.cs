@@ -33,7 +33,7 @@ public class ReflectionActivity : Activity
         EndMessage();
     }
 
-    public void Run()
+    public override void Run()
     {
         DisplayPrompt();
 

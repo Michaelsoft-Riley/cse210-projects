@@ -1,6 +1,6 @@
 using System;
 
-public class Activity
+public abstract class Activity
 {
     private string _name;
     private string _description;
@@ -70,4 +70,6 @@ public class Activity
     {
         return _duration;
     }
+
+    public abstract void Run();
 }

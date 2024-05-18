@@ -11,7 +11,7 @@ public class BreathingActivity : Activity
         EndMessage();
     }
 
-    public void Run()
+    public override void Run()
     {
         // sets the end time
         int duration = GetDuration();

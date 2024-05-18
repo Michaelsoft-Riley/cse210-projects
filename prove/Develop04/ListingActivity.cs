@@ -22,7 +22,7 @@ public class ListingActivity : Activity
         EndMessage();
     }
 
-    public void Run()
+    public override void Run()
     {
         Console.WriteLine("List as many responses as you can to the following prompt:");
         Console.WriteLine($" --- {GetRandomPrompt()} --- ");
