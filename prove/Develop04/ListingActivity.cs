@@ -15,7 +15,7 @@ public class ListingActivity : Activity
         "This activity will help you reflect on the good things in your life " + 
         "by having you list as many things as you can in a certain area.")
     {
-        
+        SetIndex(2);
     }
 
     public override void Run()
@@ -47,6 +47,7 @@ public class ListingActivity : Activity
         }
         Console.WriteLine($"You listed {count} items!");
         EndMessage();
+        UpdateCount();
     }
 
     public string GetRandomPrompt()
