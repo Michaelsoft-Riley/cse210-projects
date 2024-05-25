@@ -4,9 +4,7 @@ public class GoalManager
     private int _score = 0;
 
     public GoalManager()
-    {
-
-    }
+    {}
 
     public void Start()
     {
@@ -38,12 +36,12 @@ public class GoalManager
 
             else if (choice == "3")
             {
-
+                SaveGoals();
             }
 
             else if (choice == "4")
             {
-
+                LoadGoals();
             }
 
             else if (choice == "5")
@@ -144,8 +142,16 @@ public class GoalManager
     }
 
     public void SaveGoals()
+    // Save score and goals to file
     {
-
+        using (StreamWriter file = new StreamWriter("goals.txt"))
+        {
+            file.WriteLine(_score);
+            foreach (Goal goal in _goals)
+            {
+                file.WriteLine(goal.GetStringRepresentation());
+            }
+        }
     }
 
     public void LoadGoals()
