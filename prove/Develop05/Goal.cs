@@ -11,7 +11,7 @@ public abstract class Goal
         _points = points;
     }
 
-    public abstract void RecordEvent();
+    public abstract int RecordEvent();
     public abstract bool IsComplete();
     public virtual string GetDetailsString()
     {
@@ -26,4 +26,8 @@ public abstract class Goal
         return $"[{checkmark}] {_name} ({_description})";
     }
     public abstract string GetStringRepresentation();
+    public string GetName()
+    {
+        return _name;
+    }
 }
