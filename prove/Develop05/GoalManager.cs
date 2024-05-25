@@ -33,7 +33,7 @@ public class GoalManager
 
             else if (choice == "2")
             {
-
+                ListGoalDetails();
             }
 
             else if (choice == "3")
@@ -69,11 +69,18 @@ public class GoalManager
     }
 
     public void ListGoalDetails()
+    // Display a list of goal details to the console
     {
-
+        int goalNumber = 1;
+        foreach (Goal goal in _goals)
+        {
+            string details = goal.GetDetailsString();
+            Console.WriteLine($"{goalNumber}. " + details);
+        }
     }
 
     public void CreateGoal()
+    // Create a new goal from user input, and add it to _goals
     {
         Console.WriteLine("The types of goals are: ");
         Console.WriteLine("  1. Simple Goal");
