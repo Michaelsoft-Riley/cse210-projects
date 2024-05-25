@@ -20,7 +20,7 @@ public class SimpleGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        // TODO
-        return "";
+        string goal = $"SimpleGoal:{GetName()},{GetDescription()},{GetPoints()},{_isComplete}";
+        return goal;
     }
 }
