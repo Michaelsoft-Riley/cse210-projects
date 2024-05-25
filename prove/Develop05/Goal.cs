@@ -32,6 +32,11 @@ public abstract class Goal
         return _name;
     }
 
+    public string GetDescription()
+    {
+        return _description;
+    }
+
     public int GetPoints()
     {
         return _points;
