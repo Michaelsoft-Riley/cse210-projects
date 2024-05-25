@@ -15,7 +15,7 @@ public class GoalManager
         do
         {
             // TODO: Make sure that the score is loaded before this?
-            Console.WriteLine($"\nYou have {_score} points.");
+            DisplayPlayerInfo();
             Console.WriteLine("\nMenu Options:");
             Console.WriteLine("  1. Create New Goal");
             Console.WriteLine("  2. List Goals");
@@ -60,12 +60,17 @@ public class GoalManager
 
     public void DisplayPlayerInfo()
     {
-
+        Console.WriteLine($"\nYou have {_score} points.");
     }
 
     public void ListGoalNames()
     {
-
+        int goalNumber = 1;
+        foreach (Goal goal in _goals)
+        {
+            Console.WriteLine($"{goalNumber}. {goal.GetName()}");
+            goalNumber ++;
+        }
     }
 
     public void ListGoalDetails()
@@ -120,15 +125,10 @@ public class GoalManager
 
     public void RecordEvent()
     {
-        // Display goals
         Console.WriteLine("The Goals are:");
 
-        int goalNumber = 1;
-        foreach (Goal goal in _goals)
-        {
-            Console.WriteLine($"{goalNumber}. {goal.GetName()}");
-            goalNumber ++;
-        }
+        ListGoalNames();
+
         Console.Write("Which goal did you accomplish? ");
         string choice = Console.ReadLine();
 
