@@ -26,8 +26,14 @@ public abstract class Goal
         return $"[{checkmark}] {_name} ({_description})";
     }
     public abstract string GetStringRepresentation();
+
     public string GetName()
     {
         return _name;
+    }
+
+    public int GetPoints()
+    {
+        return _points;
     }
 }
