@@ -89,38 +89,25 @@ public class GoalManager
         Console.Write("Which type of goal would you like to create? ");
         string choice = Console.ReadLine();
 
+        Console.Write("What is the name of your goal? ");
+        string name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        string description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with it? ");
+        int points = int.Parse(Console.ReadLine());
+
         if (choice == "1")
         {
-            Console.Write("What is the name of your goal? ");
-            string name = Console.ReadLine();
-            Console.Write("What is a short description of it? ");
-            string description = Console.ReadLine();
-            Console.Write("How many points should you recieve for completion? ");
-            int points = int.Parse(Console.ReadLine());
-
             _goals.Add(new SimpleGoal(name, description, points));
         }
 
         else if (choice == "2")
         {
-            Console.Write("What is the name of your goal? ");
-            string name = Console.ReadLine();
-            Console.Write("What is a short description of it? ");
-            string description = Console.ReadLine();
-            Console.Write("What is the amount of points associated with it? ");
-            int points = int.Parse(Console.ReadLine());
-
             _goals.Add(new EternalGoal(name, description, points));
         }
 
         else if (choice == "3")
         {
-            Console.Write("What is the name of your goal? ");
-            string name = Console.ReadLine();
-            Console.Write("What is a short description of it? ");
-            string description = Console.ReadLine();
-            Console.Write("What is the amount of points associated with it?");
-            int points = int.Parse(Console.ReadLine());
             Console.Write("How many times does this goal need to be completed for a bonus? ");
             int targetCount = int.Parse(Console.ReadLine());
             Console.Write("What is the bonus for completing it that many times? ");
