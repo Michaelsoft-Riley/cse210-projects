@@ -12,15 +12,33 @@ public class ChecklistGoal : Goal
         _bonusPoints = bonusPoints;
     }
 
-    public override void RecordEvent()
+    public override int RecordEvent()
+    // TODO: make sure that this wont do anything if it's already been completed to the bonus amount
     {
-        
+        _completionCount ++;
+
+        int basePoints = GetPoints();
+        if (IsComplete())
+        {
+            return basePoints + _bonusPoints;
+        }
+
+        else
+        {
+            return basePoints;
+        }
     }
 
     public override bool IsComplete()
     {
-        // TODO
-        return false;
+        if (_completionCount == _targetCount)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     public override string GetDetailsString()

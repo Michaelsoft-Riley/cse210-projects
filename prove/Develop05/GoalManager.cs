@@ -20,7 +20,7 @@ public class GoalManager
             Console.WriteLine("  1. Create New Goal");
             Console.WriteLine("  2. List Goals");
             Console.WriteLine("  3. Save Goals");
-            Console.WriteLine("  2. Load Goals");
+            Console.WriteLine("  4. Load Goals");
             Console.WriteLine("  5. Record Event");
             Console.WriteLine("  6. Quit");
             Console.Write("Select a choice from the menu: ");
@@ -48,7 +48,7 @@ public class GoalManager
 
             else if (choice == "5")
             {
-
+                RecordEvent();
             }
 
             else if (choice == "6")
@@ -76,6 +76,7 @@ public class GoalManager
         {
             string details = goal.GetDetailsString();
             Console.WriteLine($"{goalNumber}. " + details);
+            goalNumber ++;
         }
     }
 
@@ -119,7 +120,27 @@ public class GoalManager
 
     public void RecordEvent()
     {
-        
+        // Display goals
+        Console.WriteLine("The Goals are:");
+
+        int goalNumber = 1;
+        foreach (Goal goal in _goals)
+        {
+            Console.WriteLine($"{goalNumber}. {goal.GetName()}");
+            goalNumber ++;
+        }
+        Console.Write("Which goal did you accomplish? ");
+        string choice = Console.ReadLine();
+
+        // convert user choice to goal index value
+        int goalIndex = int.Parse(choice) - 1;
+
+        // Mark goal as completed once, get points earned from completion, and add points to overall score.
+        int earnedPoints = _goals[goalIndex].RecordEvent();
+        _score += earnedPoints;
+
+        Console.WriteLine($"Congratulations! You have earned {earnedPoints} points!");
+        Console.WriteLine($"You now have {_score} points");
     }
 
     public void SaveGoals()
