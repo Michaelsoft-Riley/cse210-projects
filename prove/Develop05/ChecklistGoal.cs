@@ -8,6 +8,8 @@ public class ChecklistGoal : Goal
     : base(name, description, points)
     {
         _completionCount = 0;
+        _targetCount = targetCount;
+        _bonusPoints = bonusPoints;
     }
 
     public override void RecordEvent()
