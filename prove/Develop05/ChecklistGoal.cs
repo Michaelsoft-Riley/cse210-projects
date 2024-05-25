@@ -12,6 +12,15 @@ public class ChecklistGoal : Goal
         _bonusPoints = bonusPoints;
     }
 
+    // Used when loading from file
+    public ChecklistGoal(string name, string description, int points,int completionCount, int targetCount, int bonusPoints) 
+    : base(name, description, points)
+    {
+        _completionCount = completionCount;
+        _targetCount = targetCount;
+        _bonusPoints = bonusPoints;
+    }
+
     public override int RecordEvent()
     // TODO: make sure that this wont do anything if it's already been completed to the bonus amount
     {
@@ -50,7 +59,7 @@ public class ChecklistGoal : Goal
 
     public override string GetStringRepresentation()
     {
-        // TODO
-        return "";
+        string goal = $"ChecklistGoal:{GetName()},{GetDescription()},{GetPoints()},{_completionCount},{_targetCount},{_bonusPoints}";
+        return goal;
     }
 }
