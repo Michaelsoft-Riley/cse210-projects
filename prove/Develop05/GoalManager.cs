@@ -1,7 +1,7 @@
 public class GoalManager
 {
     private List<Goal> _goals = [];
-    private int _score;
+    private int _score = 0;
 
     public GoalManager()
     {
@@ -10,47 +10,52 @@ public class GoalManager
 
     public void Start()
     {
-        // TODO: Make sure that the score is loaded before this?
-        Console.WriteLine("\nYou have {_score} points.");
-        Console.WriteLine("\nMenu Options:");
-        Console.WriteLine("  1. Create New Goal");
-        Console.WriteLine("  2. List Goals");
-        Console.WriteLine("  3. Save Goals");
-        Console.WriteLine("  2. Load Goals");
-        Console.WriteLine("  5. Record Event");
-        Console.WriteLine("  6. Quit");
-        Console.Write("Select a choice from the menu: ");
-        string choice = Console.ReadLine();
-
-        if (choice == "1")
+        // Menu
+        string choice;
+        do
         {
-            CreateGoal();
-        }
+            // TODO: Make sure that the score is loaded before this?
+            Console.WriteLine($"\nYou have {_score} points.");
+            Console.WriteLine("\nMenu Options:");
+            Console.WriteLine("  1. Create New Goal");
+            Console.WriteLine("  2. List Goals");
+            Console.WriteLine("  3. Save Goals");
+            Console.WriteLine("  2. Load Goals");
+            Console.WriteLine("  5. Record Event");
+            Console.WriteLine("  6. Quit");
+            Console.Write("Select a choice from the menu: ");
+            choice = Console.ReadLine();
 
-        else if (choice == "2")
-        {
+            if (choice == "1")
+            {
+                CreateGoal();
+            }
 
-        }
+            else if (choice == "2")
+            {
 
-        else if (choice == "3")
-        {
+            }
 
-        }
+            else if (choice == "3")
+            {
 
-        else if (choice == "4")
-        {
+            }
 
-        }
+            else if (choice == "4")
+            {
 
-        else if (choice == "5")
-        {
+            }
 
-        }
+            else if (choice == "5")
+            {
 
-        else if (choice == "6")
-        {
+            }
 
-        }
+            else if (choice == "6")
+            {
+
+            }
+        } while (choice != "6");
     }
 
     public void DisplayPlayerInfo()
@@ -83,7 +88,7 @@ public class GoalManager
             string name = Console.ReadLine();
             Console.Write("What is a short description of it? ");
             string description = Console.ReadLine();
-            Console.Write("How many points should you recieve for completion?");
+            Console.Write("How many points should you recieve for completion? ");
             int points = int.Parse(Console.ReadLine());
 
             _goals.Add(new SimpleGoal(name, description, points));
@@ -95,7 +100,7 @@ public class GoalManager
             string name = Console.ReadLine();
             Console.Write("What is a short description of it? ");
             string description = Console.ReadLine();
-            Console.Write("What is the amount of points associated with it?");
+            Console.Write("What is the amount of points associated with it? ");
             int points = int.Parse(Console.ReadLine());
 
             _goals.Add(new EternalGoal(name, description, points));
