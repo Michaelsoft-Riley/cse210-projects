@@ -155,7 +155,48 @@ public class GoalManager
     }
 
     public void LoadGoals()
+    // This loads a score and goals from goals.txt
+    // Goals are expected to start with the format "Type:name,description,points"
     {
+        string[] lines = File.ReadAllLines("goals.txt");
 
+        // Get _score from the first line
+        _score = int.Parse(lines[0]);
+
+        foreach (string line in lines)
+        {
+            // Any lines that do not specify a goal type will be skipped
+            if (!line.Contains(':'))
+            {
+                continue;
+            }
+
+            string[] parts = line.Split(":");
+            string[] goalDetails = parts[1].Split(",");
+
+            string name = goalDetails[0];
+            string description = goalDetails[1];
+            int points = int.Parse(goalDetails[2]);
+
+            if (parts[0] == "SimpleGoal")
+            {
+                bool isComplete = bool.Parse(goalDetails[3]);
+                _goals.Add(new SimpleGoal(name, description, points, isComplete));
+            }
+
+            else if (parts[0] == "EternalGoal")
+            {
+                _goals.Add(new EternalGoal(name, description, points));
+            }
+
+            else if (parts[0] == "ChecklistGoal")
+            {
+                int completionCount = int.Parse(goalDetails[3]);
+                int targetCount = int.Parse(goalDetails[4]);
+                int bonusPoints = int.Parse(goalDetails[5]);
+
+                _goals.Add(new ChecklistGoal(name, description, points, completionCount, targetCount, bonusPoints));
+            }
+        }
     }
 }
