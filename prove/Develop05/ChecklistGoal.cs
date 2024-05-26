@@ -1,8 +1,9 @@
 public class ChecklistGoal : Goal
 {
-    private int _completionCount;
-    private int _targetCount;
-    private int _bonusPoints;
+    // These attributes aren't private because RecurringChecklistGoal needs access to them
+    protected int _completionCount;
+    protected int _targetCount;
+    protected int _bonusPoints;
 
     public ChecklistGoal(string name, string description, int points, int targetCount, int bonusPoints) 
     : base(name, description, points)
