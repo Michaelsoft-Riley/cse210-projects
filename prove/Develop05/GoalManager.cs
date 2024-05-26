@@ -92,6 +92,7 @@ public class GoalManager
         Console.WriteLine("  1. Simple Goal");
         Console.WriteLine("  2. Eternal Goal");
         Console.WriteLine("  3. Checklist Goal");
+        Console.WriteLine("  4. Recurring Checklist Goal");
         Console.Write("Which type of goal would you like to create? ");
         string choice = Console.ReadLine();
 
@@ -120,6 +121,16 @@ public class GoalManager
             int bonus = int.Parse(Console.ReadLine());
 
             _goals.Add(new ChecklistGoal(name, description, points, targetCount, bonus));
+        }
+
+        else if (choice == "4")
+        {
+            Console.Write("How many times does this goal need to be completed for a bonus? ");
+            int targetCount = int.Parse(Console.ReadLine());
+            Console.Write("What is the bonus for completing it that many times? ");
+            int bonus = int.Parse(Console.ReadLine());
+
+            _goals.Add(new RecurringChecklistGoal(name, description, points, targetCount, bonus));
         }
     }
 
@@ -198,6 +209,15 @@ public class GoalManager
                 int bonusPoints = int.Parse(goalDetails[5]);
 
                 _goals.Add(new ChecklistGoal(name, description, points, completionCount, targetCount, bonusPoints));
+            }
+
+            else if (parts[0] == "RecurringChecklistGoal")
+            {
+                int completionCount = int.Parse(goalDetails[3]);
+                int targetCount = int.Parse(goalDetails[4]);
+                int bonusPoints = int.Parse(goalDetails[5]);
+
+                _goals.Add(new RecurringChecklistGoal(name, description, points, completionCount, targetCount, bonusPoints));
             }
         }
     }
