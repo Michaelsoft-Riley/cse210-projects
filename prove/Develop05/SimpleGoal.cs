@@ -15,8 +15,16 @@ public class SimpleGoal : Goal
 
     public override int RecordEvent()
     {
-        _isComplete = true;
-        return GetPoints();
+        if (_isComplete == false)
+        {
+            _isComplete = true;
+            return GetPoints();
+        }
+        else
+        {
+            Console.WriteLine("This goal has already been completed");
+            return 0;
+        }
     }
 
     public override bool IsComplete()

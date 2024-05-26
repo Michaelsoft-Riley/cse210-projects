@@ -22,19 +22,27 @@ public class ChecklistGoal : Goal
     }
 
     public override int RecordEvent()
-    // TODO: make sure that this wont do anything if it's already been completed to the bonus amount
     {
-        _completionCount ++;
-
-        int basePoints = GetPoints();
-        if (IsComplete())
+        if (!IsComplete())
         {
-            return basePoints + _bonusPoints;
-        }
+            _completionCount ++;
 
+            int basePoints = GetPoints();
+            if (IsComplete())
+            {
+                return basePoints + _bonusPoints;
+            }
+
+            else
+            {
+                return basePoints;
+            }
+        }
+        
         else
         {
-            return basePoints;
+            Console.WriteLine("This goal has already been completed.");
+            return 0;
         }
     }
 
