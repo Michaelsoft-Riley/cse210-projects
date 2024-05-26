@@ -74,6 +74,8 @@ public class GoalManager
     public void ListGoalDetails()
     // Display a list of goal details to the console
     {
+        Console.WriteLine("The goals are:");
+
         int goalNumber = 1;
         foreach (Goal goal in _goals)
         {
@@ -161,7 +163,7 @@ public class GoalManager
         string[] lines = File.ReadAllLines("goals.txt");
 
         // Get _score from the first line
-        _score = int.Parse(lines[0]);
+        _score += int.Parse(lines[0]);
 
         foreach (string line in lines)
         {
