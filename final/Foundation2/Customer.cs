@@ -18,4 +18,9 @@ public class Customer
     {
         return _name;
     }
+
+    public string GetAddressString()
+    {
+        return _address.GetAddressString();
+    }
 }
