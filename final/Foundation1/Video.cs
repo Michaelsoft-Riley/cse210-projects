@@ -19,11 +19,7 @@ public class Video
 
     public int GetCommentCount()
     {
-        int count = 0;
-        foreach (Comment comment in _comments)
-        {
-            count ++;
-        }
+        int count = _comments.Count();
         return count;
     }
 
