@@ -27,9 +27,10 @@ class Program
         {
             double total = o.GetTotal();
             Console.WriteLine($"Order{orderCount} Total Cost: ${total}");
-
             o.DisplayPackagingLabel();
             o.DisplayShippingLabel();
+            
+            Console.WriteLine("");
             orderCount ++;
         }
     }
