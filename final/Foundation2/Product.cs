@@ -5,7 +5,7 @@ public class Product
     private double _price;
     private int _quantity;
 
-    public Product(string name, string id, float price, int quantity)
+    public Product(string name, string id, double price, int quantity)
     {
         _name = name;
         _id = id;
