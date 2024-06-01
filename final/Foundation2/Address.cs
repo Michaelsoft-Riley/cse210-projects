@@ -6,12 +6,14 @@ public class Address
     private string _stateProvince;
     private string _country;
 
-    public Address(string street, string city, string stateProvince, string country)
+    public Address(string address)
     {
-        _street = street;
-        _city = city;
-        _stateProvince = stateProvince;
-        _country = country;
+        string[] addressDetails = address.Split(',');
+
+        _street = addressDetails[0];
+        _city = addressDetails[1];
+        _stateProvince = addressDetails[2];
+        _country = addressDetails[3];
     }
 
     public bool IsUSA()
