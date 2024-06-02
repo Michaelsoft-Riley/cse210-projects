@@ -1,6 +1,6 @@
 public class GatheringEvent: Event
 {
-    string _weather;
+    private string _weather;
 
     public GatheringEvent(string title, string description, string date, string time, string address,
     string weather) : base(title, description, date, time, address)
