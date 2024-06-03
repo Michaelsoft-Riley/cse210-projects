@@ -1,6 +1,6 @@
 public class SwimmingActivity : Activity
 {
-    int _laps;
+    private int _laps;
 
     public SwimmingActivity(string date, double minutes, int laps) : base(date, minutes)
     {
